@@ -1,5 +1,7 @@
 local hui = gethui or get_hidden_gui
 local coregui = game:GetService("CoreGui")
+local userinputservice = game:GetService("UserInputService")
+local tweenservice = game:GetService("TweenService")
 
 local ui = import("rbxassetid://75281832304062")
 
@@ -68,3 +70,48 @@ for _, sect in pairs(Sections) do
         CurSection = sect
     end)
 end
+
+HideButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = false
+    ToggleButton.Visible = true
+end)
+
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = true
+    ToggleButton.Visible = false
+end)
+
+local dragging = false
+local dragInput, mousePos, framePos
+
+MainFrame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        mousePos = input.Position
+        framePos = MainFrame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+MainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+userinputservice.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        local delta = input.Position - mousePos
+        MainFrame.Position = UDim2.new(
+            framePos.X.Scale,
+            framePos.X.Offset + delta.X,
+            framePos.Y.Scale,
+            framePos.Y.Offset + delta.Y
+        )
+    end
+end)
