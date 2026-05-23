@@ -34,7 +34,7 @@ return function(section)
                 end
 
                 local char = plr.Character
-                char:MoveTo(bestArea.Position)
+                char:MoveTo(bestArea.Position - Vector3.new(0, 500, 0))
                 task.wait(0.1)
                 dashev:FireServer("EndWarp")
 
