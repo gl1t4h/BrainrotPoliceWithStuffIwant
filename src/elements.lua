@@ -1,4 +1,4 @@
-local elements = import("rbxassetid://113037265185555")
+local elements = import("rbxassetid://79700133169398")
 local stuff = {}
 
 function stuff:Label(str, king)
@@ -44,9 +44,7 @@ function stuff:Textbox(str, king, cb)
     newTb.Parent = king
 
     newTb.tbbg.Inp.FocusLost:Connect(function(ep)
-        if ep then
-            cb(newTb.tbbg.Inp.Text)
-        end
+        cb(newTb.tbbg.Inp.Text)
     end)
 end
 
