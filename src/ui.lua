@@ -2,6 +2,8 @@ local hui = gethui or get_hidden_gui
 local getexec = identifyexecutor
 local coregui = game:GetService("CoreGui")
 local userinputservice = game:GetService("UserInputService")
+local httpservice = game:GetService("HttpService")
+local tpservice = game:GetService("TeleportService")
 local tweenservice = game:GetService("TweenService")
 
 local ui = import("rbxassetid://75281832304062")
@@ -121,9 +123,17 @@ Sections.Home.Container.execLabel.Text = "Executor: " .. getexec()
 
 
 local gamePath = game:HttpGet(getgitpath("games") .. tostring(game.PlaceId) .. ".lua")
+local gameList = httpservice:JSONDecode(game:HttpGet(getgitpath("src").. "gameslist.json"))
+local elements = loadstring(game:HttpGet(getgitpath("src").."elements.lua"))()
 if #gamePath == 0 then
-    print("Unsupported")
+    print("unsupported")
 else
     local gameModule = loadstring(gamePath)()
     gameModule(Sections.Game.Container)
+end
+
+for _, g in ipairs(gameList) do
+    elements:Button(g.status .. " " .. g["game"], Sections.GamesList.Container, function()
+        tpservice:Teleport(g.id)
+    end)
 end
