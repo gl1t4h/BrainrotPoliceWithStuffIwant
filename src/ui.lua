@@ -33,6 +33,11 @@ local Sections = {
     GamesList = {
         TabBtn = TabList.GameslistTab,
         Container = SectionContainers.gamelistFrame
+    },
+
+    Settings = {
+        TabBtn = TabList.SettingsTab,
+        Container = SectionContainers.settingsFrame
     }
 }
 
@@ -126,7 +131,18 @@ local gamePath = game:HttpGet(getgitpath("games") .. tostring(game.PlaceId) .. "
 local gameList = httpservice:JSONDecode(game:HttpGet(getgitpath("src").. "gameslist.json"))
 local elements = loadstring(game:HttpGet(getgitpath("src").."elements.lua"))()
 if #gamePath == 0 then
-    print("unsupported")
+    elements:Unsupported(Sections.Game.Container, function()
+        if CurSection then
+            CurSection.TabBtn.BackgroundTransparency = 1
+            CurSection.Container:TweenPosition(UDim2.new(0.5, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2)
+        end
+
+        Sections.GamesList.TabBtn.BackgroundTransparency = 0
+        Sections.GamesList.Container:TweenPosition(UDim2.new(0.5, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2)
+        Sections.GamesList.Container.Visible = true
+
+        CurSection = Sections.GamesList
+    end)
 else
     local gameModule = loadstring(gamePath)()
     gameModule(Sections.Game.Container)
@@ -137,3 +153,11 @@ for _, g in ipairs(gameList) do
         tpservice:Teleport(g.id)
     end)
 end
+
+elements:Toggle("Disable 3D Rendering", Sections.Settings.Container, function(v)
+    game:GetService("RunService"):Set3dRenderingEnabled(not v)
+end)
+
+elements:Toggle("Auto Rejoin (when kicked)", Sections.Settings.Container, function(v)
+    getgenv().autorjjjj = v
+end)
