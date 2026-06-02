@@ -1,3 +1,6 @@
 -- reel for brainrots new plr
 
-loadstring(game:HttpGet(getgitpath("games") .. "106772177198260.lua"))()
+return function(section)
+  local b = loadstring(game:HttpGet(getgitpath("games") .. "106772177198260.lua"))()
+  b(section)
+end
