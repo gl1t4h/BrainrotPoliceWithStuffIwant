@@ -38,6 +38,11 @@ local Sections = {
     Settings = {
         TabBtn = TabList.SettingsTab,
         Container = SectionContainers.settingsFrame
+    },
+
+    Credits = {
+        TabBtn = TabList.CreditsTab,
+        Container = SectionContainers.creditsFrame
     }
 }
 
@@ -129,6 +134,7 @@ Sections.Home.Container.execLabel.Text = "Executor: " .. getexec()
 
 local gamePath = game:HttpGet(getgitpath("games") .. tostring(game.PlaceId) .. ".lua")
 local gameList = httpservice:JSONDecode(game:HttpGet(getgitpath("src").. "gameslist.json"))
+local creditsList = httpservice:JSONDecode(game:HttpGet(getgitpath("src").. "credits.json"))
 local elements = loadstring(game:HttpGet(getgitpath("src").."elements.lua"))()
 if #gamePath == 0 or gamePath == "404: Not Found" then
     elements:Unsupported(Sections.Game.Container, function()
@@ -152,6 +158,14 @@ for _, g in ipairs(gameList) do
     elements:Button(g.status .. " " .. g["game"], Sections.GamesList.Container, function()
         exservice:LaunchExperience({placeId = g.id})
     end)
+end
+
+for sect, c in pairs(creditsList) do
+    elements:CredHead(sect, Sections.Credits.Container)
+
+    for _, person in ipairs(c) do
+        elements:CredPerson(person, Sections.Credits.Container)
+    end
 end
 
 elements:Toggle("Disable 3D Rendering", Sections.Settings.Container, function(v)
