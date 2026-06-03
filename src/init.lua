@@ -1,3 +1,7 @@
+--[[
+For a more in depth explanation and rundown of this script, I recommend you check out https://github.com/IcantAffordSynapse/BrainrotPolice
+]]
+
 local env = getgenv()
 
 function env.import(id)
