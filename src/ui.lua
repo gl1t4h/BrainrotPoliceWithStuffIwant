@@ -132,11 +132,13 @@ Sections.Home.Container.ythead.Text = Sections.Home.Container.ythead.Text:gsub("
 Sections.Home.Container.execLabel.Text = "Executor: " .. getexec()
 
 
-local gamePath = game:HttpGet(getgitpath("games") .. tostring(game.PlaceId) .. ".lua")
+local ok, gamePath = pcall(function()
+    return game:HttpGet(getgitpath("games") .. tostring(game.PlaceId) .. ".lua")
+end)
 local gameList = httpservice:JSONDecode(game:HttpGet(getgitpath("src").. "gameslist.json"))
 local creditsList = httpservice:JSONDecode(game:HttpGet(getgitpath("src").. "credits.json"))
 local elements = loadstring(game:HttpGet(getgitpath("src").."elements.lua"))()
-if #gamePath == 0 or gamePath == "404: Not Found" then
+if not ok or #gamePath == 0 or gamePath == "404: Not Found" then
     elements:Unsupported(Sections.Game.Container, function()
         if CurSection then
             CurSection.TabBtn.BackgroundTransparency = 1
