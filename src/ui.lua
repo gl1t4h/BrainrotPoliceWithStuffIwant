@@ -144,7 +144,7 @@ if not ok or #gamePath == 0 or gamePath == "404: Not Found" then
     if getgenv().FileScripts then
         if isfile("BrainrotPolice/"..tostring(game.PlaceId)..".lua") then
             local gameModule = loadstring(readfile("BrainrotPolice/"..tostring(game.PlaceId)..".lua"))()
-            gameModule(Sections.Game.Container)
+            gameModule(Sections.Game.Container, httpservice:JSONDecode(readfile("BrainrotPolice/Config.json")))
             handledLocally = true
         end
     end
@@ -165,7 +165,7 @@ if not ok or #gamePath == 0 or gamePath == "404: Not Found" then
     end
 else
     local gameModule = loadstring(gamePath)()
-    gameModule(Sections.Game.Container)
+    gameModule(Sections.Game.Container, httpservice:JSONDecode(readfile("BrainrotPolice/Config.json")))
 end
 
 for _, g in ipairs(gameList) do
