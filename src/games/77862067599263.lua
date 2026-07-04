@@ -91,9 +91,9 @@ return function(section, data)
                 {
                     LandingPosition = Vector3.new(4, -99, 4514),
                     ItemName = "Spaghetti Tualetti",
-                    Rarity = "Hacked",
+                    Rarity = "Hacker",
                     BlockName = "Uncommon Lucky Block",
-                    LandingRarity = "Hacked",
+                    LandingRarity = "Hacker",
                     Mutation = "Disco",
                     Power = 10.642112568062
                 }
