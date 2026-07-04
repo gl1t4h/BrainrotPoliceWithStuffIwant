@@ -18,7 +18,7 @@ function env.import(id)
 end
 
 function env.getgitpath(where)
-    local mainBuild = "https://raw.githubusercontent.com/IcantAffordSynapse/BrainrotPolice/refs/heads/main/"
+    local mainBuild = "https://github.com/gl1t4h/BrainrotPoliceWithStuffIwant/refs/heads/main/"
     if where == "src" then
         return mainBuild .. "src/"
     elseif where == "games" then
@@ -43,7 +43,4 @@ end)
 game:GetService("GuiService"):SetGameplayPausedNotificationEnabled(false)
 
 loadstring(game:HttpGet(getgitpath("src").."ui.lua"))()
-
-if queue_on_teleport then
-    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/BrainrotPolice/refs/heads/main/src/init.lua"))()')
 end
