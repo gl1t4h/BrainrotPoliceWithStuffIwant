@@ -46,5 +46,5 @@ loadstring(game:HttpGet(getgitpath("src").."ui.lua"))()
 
 
 if queue_on_teleport then
-    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/BrainrotPolice/refs/heads/main/src/init.lua"))()')
+    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/gl1t4h/BrainrotPoliceWithStuffIwant/refs/heads/main/src/init.lua"))()')
 end
