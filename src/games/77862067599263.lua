@@ -94,7 +94,7 @@ return function(section, data)
                     Rarity = "Hacker",
                     BlockName = "Uncommon Lucky Block",
                     LandingRarity = "Hacker",
-                    Mutation = "Disco",
+                    Mutation = "Diamond",
                     Power = 10.642112568062
                 }
             )
