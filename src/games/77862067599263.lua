@@ -61,49 +61,6 @@ return function(section, data)
         end
     end)
 
-        elements:Toggle("Farm Spaghetti Tualetti", section, setdata.farmrots, function(v)
-        env.Farming = v
-        env.setconfig("farmrots", v)
-        if not env.Farming then return end
-
-        while env.Farming do
-            plr.Character:MoveTo(Vector3.new(9, 19, -493))
-            task.wait(0.5)
-            local Event = game:GetService("ReplicatedStorage").ThrowLuckyBlockRemotes.ThrowZoneBatVisual
-            Event:FireServer(
-                true
-            )
-            task.wait()
-            local Event = game:GetService("ReplicatedStorage").ThrowLuckyBlockRemotes.ThrowStarted
-            Event:FireServer()
-            task.wait()
-            local Event = game:GetService("ReplicatedStorage").ThrowLuckyBlockRemotes.ThrowBatHit
-            Event:FireServer(
-                nil,
-                false
-            )
-            task.wait()
-            local Event = game:GetService("ReplicatedStorage").ThrowLuckyBlockRemotes.ThrowBatTimingVfxCleanup
-            Event:FireServer()
-            task.wait()
-            local Event = game:GetService("ReplicatedStorage").ThrowLuckyBlockRemotes.LuckyBlockLanded
-            Event:FireServer(
-                {
-                    LandingPosition = Vector3.new(4, -99, 4514),
-                    ItemName = "Spaghetti Tualetti",
-                    Rarity = "Hacker",
-                    BlockName = "Uncommon Lucky Block",
-                    LandingRarity = "Hacker",
-                    Mutation = "Diamond",
-                    Power = 10.642112568062
-                }
-            )
-            task.wait(0.5)
-            plr.Character:MoveTo(Vector3.new(8, 21, -558))
-            task.wait(0.5)
-        end
-    end)
-
      elements:Toggle("Farm Disco Drag", section, setdata.farmrots, function(v)
         env.Farming = v
         env.setconfig("farmrots", v)
