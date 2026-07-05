@@ -48,6 +48,7 @@ local Sections = {
     Changelog = {
         Tabbtn = TabList.ChangelogTab,
         Container = SectionContainers.changelogFrame
+    }
 }
 
 local CurSection
