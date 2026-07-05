@@ -44,7 +44,7 @@ local Sections = {
         TabBtn = TabList.CreditsTab,
         Container = SectionContainers.creditsFrame
     }
-},
+}
 
 local CurSection
 
