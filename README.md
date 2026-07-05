@@ -1,6 +1,5 @@
 # whoop whoop cuz its the brainrot police 🚓🚓🚓
 Creds to esore. His Discord: https://discord.gg/vaehz
-## Last update 02/07/2026 {DD/MM/YYYY}
 
 This is an open source little project I made for a bunch of poopy brainrot games. Don't take it too serious lads
 
