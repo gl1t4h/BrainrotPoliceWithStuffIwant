@@ -18,25 +18,6 @@ return function(section, data)
     data[tostring(game.PlaceId)] = setdata
     writefile("BrainrotPolice/Config.json", game:GetService("HttpService"):JSONEncode(data))
 
-    function stuff:Searchbar(king)
-    local newSearch = elements.searchBar:Clone()
-    newSearch.Parent = king
-    newSearch.searchbar.Inp:GetPropertyChangedSignal("Text"):Connect(function()
-        for i, v in pairs(king:GetChildren()) do
-            if v.Name == "GameElement" then
-                v:Destroy()
-            end
-        end
-
-        for i, v in pairs(gameList) do
-            if v["game"]:lower():find(newSearch.searchbar.Inp.Text:lower()) then
-                stuff:addGame(king, v["game"], v["status"], function()
-                    game:GetService("ExperienceService"):LaunchExperience({placeId = v["id"]})
-                end)
-            end
-        end
-    end)
-
     elements:Toggle("Farm Disco Meowl", section, setdata.farmrots, function(v)
         env.Farming = v
         env.setconfig("farmrots", v)
