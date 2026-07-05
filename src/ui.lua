@@ -126,11 +126,11 @@ userinputservice.InputChanged:Connect(function(input)
     end
 end)
 
-Sections.Home.Container.bugsLabel.Text = Sections.Home.Container.bugsLabel.Text:gsub("redacted", "None")
-Sections.Home.Container.discan.Text = Sections.Home.Container.discan.Text:gsub("redacted", "None")
-Sections.Home.Container.ythead.Text = Sections.Home.Container.ythead.Text:gsub("redacted", "None")
+Sections.Home.Container.bugsLabel.Text = Sections.Home.Container.bugsLabel.Text:gsub("redacted", "discord.gg/_____")
+Sections.Home.Container.discan.Text = Sections.Home.Container.discan.Text:gsub("redacted", ".gg/____")
+Sections.Home.Container.ythead.Text = Sections.Home.Container.ythead.Text:gsub("redacted", "YouTube (He is tuff)")
 Sections.Home.Container.execLabel.Text = "Executor: " .. getexec()
-Sections.Home.Container.versionLabel.Text = "Version: 0.41 ALPHA"
+Sections.Home.Container.versionLabel.Text = "Version: 0.5 ALPHA"
 
 
 local ok, gamePath = pcall(function()
