@@ -6,6 +6,7 @@ This is an open source little project I made for a bunch of poopy brainrot games
 his website: https://wearentdevs.net/
 
 ```lua
+getgenv().FileScripts = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gl1t4h/BrainrotPoliceWithStuffIwant/refs/heads/main/src/init.lua"))()
 ```
 
