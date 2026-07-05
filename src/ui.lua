@@ -43,11 +43,6 @@ local Sections = {
     Credits = {
         TabBtn = TabList.CreditsTab,
         Container = SectionContainers.creditsFrame
-    },
-
-    Changelog = {
-        Tabbtn = TabList.ChangelogTab,
-        Container = SectionContainers.changelogFrame
     }
 },
 
@@ -203,7 +198,3 @@ elements:Toggle("Auto Rejoin (when kicked)", Sections.Settings.Container, dec1.s
     writefile("BrainrotPolice/Config.json", httpservice:JSONEncode(dec))
     getgenv().autorjjjj = v
 end)
-
-Sections.Changelog.Container.log.Text = 
-    "Added Changelog"
-    "Added more farms to Obby As A brainrot"
