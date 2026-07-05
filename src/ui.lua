@@ -202,3 +202,7 @@ elements:Toggle("Auto Rejoin (when kicked)", Sections.Settings.Container, dec1.s
     writefile("BrainrotPolice/Config.json", httpservice:JSONEncode(dec))
     getgenv().autorjjjj = v
 end)
+
+Sections.Changelog.Container.log.Text = 
+    "Added Changelog
+    "Added more farms to Obby As A brainrot"
