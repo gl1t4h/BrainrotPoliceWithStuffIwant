@@ -43,7 +43,11 @@ local Sections = {
     Credits = {
         TabBtn = TabList.CreditsTab,
         Container = SectionContainers.creditsFrame
-    }
+    },
+
+    Changelog = {
+        Tabbtn = TabList.ChangelogTab,
+        Container = SectionContainers.changelogFrame
 }
 
 local CurSection
