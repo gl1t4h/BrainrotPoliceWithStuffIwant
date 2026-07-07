@@ -63,7 +63,7 @@ function stuff:Unsupported(king, cb)
     newUs.Parent = king
 
     newUs.suggestbtn.MouseButton1Click:Connect(function()
-        setclipboard("https://discord.gg/vaehz")
+        setclipboard("https://discord.gg/cAfKfMcRVW")
         newUs.suggestbtn.Text = "Copied Link!"
         wait(1)
         newUs.suggestbtn.Text = "Suggest Game"
