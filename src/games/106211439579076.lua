@@ -11,7 +11,6 @@ return function(section, data)
     local repStorage = game:GetService("ReplicatedStorage")
     local plr = game:GetService("Players").LocalPlayer
 
-   elements:Label("You have been sent here because the script had an error when u loaded it. Try and load it again, if that doesn't work then wait while I fix it.", section)
-  
-    end)
+elements:Label("You have been sent here because the script had an error when u loaded it. Try and load it again, if that doesn't work then wait while I fix it.", section)
+   end
 end
